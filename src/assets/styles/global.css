@@ -1,0 +1,196 @@
+/* 设计 Tokens */
+:root {
+  /* Colors */
+  --primary: #2563eb;
+  --primary-300: #60a5fa;
+  --text: #374151;
+  --muted: #6b7280;
+  --divider: #eef2ff;
+  --table-header: #f8fafc;
+  --row-hover: #f9fbff;
+  
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #60a5fa, #2563eb);
+  --gradient-bg-top: radial-gradient(circle at top left, #eef2ff 0%, transparent 50%);
+  --gradient-bg-bottom: radial-gradient(circle at bottom right, #a7f3d0 0%, #e0f2fe 50%, transparent 100%);
+  
+  /* Surfaces/Elevation */
+  --surface: rgba(255, 255, 255, 0.9);
+  --blur: 6px;
+  --shadow-1: 0 6px 16px rgba(0, 0, 0, 0.06);
+  --shadow-accent: 0 10px 30px rgba(37, 99, 235, 0.10);
+  
+  /* Radii/Spacing */
+  --radius-card: 16px;
+  --radius-input: 10px;
+  --radius-item: 8px;
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+  --spacing-xl: 24px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: var(--text);
+  background: linear-gradient(135deg, #f0f9ff 0%, #f0fdf4 100%);
+  background-attachment: fixed;
+  position: relative;
+  min-height: 100vh;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--gradient-bg-top), var(--gradient-bg-bottom);
+  pointer-events: none;
+  z-index: -1;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+/* Glass Surface */
+.glass {
+  background: var(--surface);
+  backdrop-filter: blur(var(--blur));
+  -webkit-backdrop-filter: blur(var(--blur));
+}
+
+/* Buttons */
+.btn-primary {
+  background: var(--gradient-primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-input);
+  padding: var(--spacing-md) var(--spacing-xl);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-1);
+}
+
+.btn-primary:hover {
+  filter: brightness(1.05);
+  box-shadow: var(--shadow-accent);
+}
+
+.btn-primary-plain {
+  background: #eff6ff;
+  color: var(--primary);
+  border: 1px solid #bfdbfe;
+  border-radius: var(--radius-input);
+  padding: var(--spacing-md) var(--spacing-xl);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-primary-plain:hover {
+  background: #dbeafe;
+}
+
+/* Inputs */
+.input {
+  width: 100%;
+  padding: var(--spacing-md);
+  border: 1px solid var(--divider);
+  border-radius: var(--radius-input);
+  background: white;
+  color: var(--text);
+  font-size: 14px;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-1);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* Cards */
+.card {
+  background: var(--surface);
+  backdrop-filter: blur(var(--blur));
+  -webkit-backdrop-filter: blur(var(--blur));
+  border-radius: var(--radius-card);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-accent);
+}
+
+/* Tables */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table thead {
+  background: var(--table-header);
+}
+
+.table th {
+  padding: var(--spacing-md) var(--spacing-lg);
+  text-align: left;
+  font-weight: 600;
+  color: var(--text);
+  border-bottom: 1px solid var(--divider);
+}
+
+.table td {
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-bottom: 1px solid var(--divider);
+}
+
+.table tbody tr {
+  transition: background 0.2s ease;
+}
+
+.table tbody tr:hover {
+  background: var(--row-hover);
+}
+
+/* Navigation */
+.nav-item {
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--radius-item);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: var(--text);
+  text-decoration: none;
+  display: block;
+}
+
+.nav-item:hover {
+  background: rgba(239, 246, 255, 0.5);
+}
+
+.nav-item.active {
+  background: #eff6ff;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* Utilities */
+.text-muted {
+  color: var(--muted);
+}
+
+.divider {
+  height: 1px;
+  background: var(--divider);
+  margin: var(--spacing-lg) 0;
+}
+
